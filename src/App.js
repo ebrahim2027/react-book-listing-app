@@ -4,15 +4,10 @@ import Title from "./component/Title";
 import "./App.css";
 import Modal from "./component/Modal";
 import BookList from "./component/BookList";
+import NewBookForm from "./component/NewBookForm";
 function App() {
   // --- Step1 ---
-  const [books, setBooks] = useState([
-    { title: "Clean Code", id: 1 },
-    { title: "Eloquent JavaScript", id: 2 },
-    { title: "Web Design with HTML, CSS & JS", id: 3 },
-    { title: "You Don't Know JS Yet", id: 4 },
-    { title: "Gang of Four Design Patterns", id: 5 },
-  ]);
+  const [books, setBooks] = useState([]);
   // --- Step6 ---
   const [showModal, setShowModal] = useState(false);
 
@@ -39,6 +34,14 @@ function App() {
   const handleOpen = () => {
     setShowModal(true);
   };
+
+  // --- Step11 ---
+  const addBook = (book) => {
+    setBooks((prevBooks) => {
+      return [...prevBooks, book];
+    });
+    setShowModal(false);
+  };
   return (
     <div className="App">
       {/* --- Step4 --- */}
@@ -64,18 +67,14 @@ function App() {
 
       {/* ---- Step5 ---- */}
       {showModal && (
-        <Modal handleClose={handleClose}>
-          <h2>Terms & Conditions</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
-            architecto itaque illum amet voluptas, aperiam sit quos non eos ut
-            natus fuga maiores modi at qui? Delectus nemo officiis velit.
-          </p>
+        <Modal>
+          {/* --- Step8 --- */}
+          <NewBookForm addBook={addBook} />
         </Modal>
       )}
       <br />
       {/* ---- Step7 ---- */}
-      <button onClick={handleOpen}>Open Modal</button>
+      <button onClick={handleOpen}>Add Book</button>
     </div>
   );
 }

@@ -3,10 +3,14 @@
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
   padding: 10px;
   max-width: 400px;
-  margin: 10px auto;
+  margin: 20px auto;
   border-radius: 4px;
   background-color: #444;
 }
+.card h2 {
+  margin: 10px;
+}
 .card button {
-  text-transform: uppercase;
+  text-transform: capitalize;
+  margin-top: 20px;
 }

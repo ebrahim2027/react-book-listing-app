@@ -9,6 +9,9 @@ export default function BookList(props) {
           <h2>
             {book.id} - {book.title}
           </h2>
+          <p>
+            {book.gener} | {book.date}
+          </p>
           {/* --- Step2 ---- */}
           <button onClick={() => props.handleDelete(book.id)}>Delete</button>
         </div>
